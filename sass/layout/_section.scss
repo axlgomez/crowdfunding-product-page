@@ -1,0 +1,453 @@
+@use "../base" as *;
+@use "../abstract/" as *;
+
+
+main
+{
+    margin-bottom: 5em;
+}
+
+.monitor
+{
+    background-color: #fff;
+    text-align: center;
+    border-radius: 7px;
+    width: 90%;
+    margin: auto;
+    transform: translateY(-2.5em);
+
+    @include responsive(portatil)
+    {
+        width: 600px;
+    }
+    
+
+    &__icon-primary
+    {
+        transform: translateY(-1.8em);
+    }
+
+    &__content
+    {
+        transform: translateY(-.7em);
+    }
+
+    &__title
+    {
+        font-size: 22px;
+        padding: 0 1em;
+        margin: auto;
+    }
+
+    &__text
+    {
+        color: $dark-gray;
+        font-size: 14px;
+        padding: 0 1em;
+        line-height: 1.7;
+
+        @include responsive (portatil)
+        {
+            font-size: 13px;
+            transform: translateY(-.5em);
+        }
+    }
+
+    &__button
+    {
+        background-color: $moderate-cyan;
+        border: none; outline: none;
+        color: white;
+        font-weight: map-get($weights, medium);
+        font-size: 14px;
+        padding: 1.1em 2.7em;
+        border-radius: 30px;
+        margin-top: 2em;
+        transform: translate(-1em, -1.5em);
+        cursor: pointer;
+
+        &:hover
+        {
+            background-color: $dark-cyan;
+        }
+
+        @include responsive(portatil)
+        {
+            transform: translate(-7em, -1.5em);
+        }
+    }
+
+    //
+
+    &__icon-secondary
+    {
+        width: 50px;
+        transform: translateY(-.1em);
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__mark
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: inline-block;
+            cursor: pointer;
+        }
+    }
+
+    &__icon-mark
+    {
+        width: 47px;
+        position: absolute;
+        top: 5.1em; right: 8.4em;
+        z-index: 1;
+    }
+
+    &__bookMark
+    {
+        color: rgba($color: $black, $alpha: .7);
+        background: rgba($color: $dark-gray, $alpha: .1);
+        font-size: 14px;
+        font-weight: map-get($weights, bold);
+        border: none; outline: none;
+        transform: translate(7.3em, -1.45em);
+        padding: 1.1em 1.7em 1.2em 4em;
+        border-radius: 30px;
+        cursor: pointer;
+
+        &:hover
+        {
+            background: rgba($color: $dark-gray, $alpha: .2);
+        }
+    }
+}
+
+.data
+{
+    text-align: center;
+    background-color: white;
+    padding-bottom: 1em;
+    border-radius: 7px;
+    width: 90%;
+    margin: auto;
+    transform: translateY(-1em);
+
+    @include responsive(portatil)
+    {
+        width: 600px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 70px;
+    }
+
+    &__total
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        line-height: .5;
+        padding: 1em 0;
+
+        &--pd
+        {
+            padding-bottom: 3em;
+
+            @include responsive(portatil)
+            {
+                padding-bottom: 3.5em;
+            }
+        }
+    }
+
+    &__title
+    {
+        font-size: 28px;
+    }
+
+    &__text
+    {
+        color: $dark-gray;
+        font-weight: map-get($weights, medium);
+
+        &--100
+        {
+            @include responsive(portatil)
+            {
+                margin-left: 1em;
+            }
+        }
+    }
+
+    &__line1
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            border-left: 1px solid rgba($color: $dark-gray, $alpha: .3);
+            height: 35%;
+            width: 50%;
+            position: absolute;
+            top: 2em; left: 11.5em;
+        }
+    }
+
+    &__line2
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            border-right: 1px solid rgba($color: $dark-gray, $alpha: .3);
+            height: 35%;
+            width: 50%;
+            position: absolute;
+            top: 2em; left: 4em;
+        }
+    }
+
+    hr
+    {
+        border: none;
+        height: 1px;
+        background: rgba($color: $dark-gray, $alpha: .3);
+        width: 70px;
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__outer
+    {
+        background: rgba($color: $dark-gray, $alpha: .1);
+        border-radius: 10px;
+        width: 75%;
+        margin: auto;
+        transform: translateY(2em);
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__inner
+    {
+        border-radius: 10px;
+        background-color: $moderate-cyan;
+        width: 80%;
+        height: 10px;
+    }
+
+   
+
+    &__outer-desktop
+    {
+        display: none;
+        
+        @include responsive(portatil)
+        {
+            display: block;
+            background: rgba($color: $dark-gray, $alpha: .1);
+            border-radius: 10px;
+            width: 32.5em;
+            margin: auto;
+            transform: translate(-30.7em, 3.2em);
+        }
+    }
+    
+    &__inner-desktop
+    {
+         border-radius: 10px;
+         background-color: $moderate-cyan;
+         width: 80%;
+         height: 10px;
+    }
+
+}
+
+.project
+{
+    text-align: start;
+    background-color: white;
+    width: 90%;
+    margin: auto;
+    border-radius: 7px;
+    transform: translateY(.7em);
+    padding-bottom: 1em;
+
+    @include responsive(portatil)
+    {
+        width: 600px;
+    }
+
+    &__content
+    {
+        padding: 1em 1.8em;
+
+        @include responsive(portatil)
+        {
+            padding: 1em 2.5em;
+        }
+    }
+
+    &__txt
+    {
+        font-size: 14px;
+        color: $dark-gray;
+        line-height: 1.5;
+
+        @include responsive(portatil)
+        {
+            font-size: 13px;
+            line-height: 1.8;
+        }
+    }
+}
+
+.bamboo
+{
+    border: 1px solid rgba($color: $dark-gray, $alpha: .3);
+    border-radius: 7px;
+    width: 82%;
+    margin: 1.5em auto;
+
+    @include responsive(portatil)
+    {
+        width: 85%;
+        margin: 1em 2.4em;
+        height: 33vh;
+        transform: translateY(-1em);
+    }
+
+    &-out
+    {
+        opacity: .5;
+        
+    }
+
+    &__content
+    {
+        padding: 0 1.9em;
+
+        @include responsive(portatil)
+        {
+            padding: 0 1.5em;
+        }
+    }
+
+    &__title
+    {
+
+        @include responsive (portatil)
+        {
+            font-size: 15px;
+        }
+    }
+
+    &__small
+    {
+        font-size: 13.5px;
+        color: $moderate-cyan;
+        font-weight: map-get($weights, medium);
+        transform: translateY(-1em);
+
+        @include responsive(portatil)
+        {
+            transform: translate(25em, -3.1em);
+        }
+    }
+
+    &__reward
+    {
+        transform: translateY(-.5em);
+
+        @include responsive(portatil)
+        {
+            transform: translateY(-2em);
+        }
+    }
+
+    &__txt
+    {
+        font-size: 13px;
+        line-height: 1.7;
+        color: $dark-gray;
+    }
+
+    &__number
+    {
+        font-size: 28px;
+    }
+
+    &__left
+    {
+        font-size: 14px;
+        color: $dark-gray;
+        font-weight: map-get($weights, medium);
+        position: absolute;
+        left: 3.7em;
+        transform: translateY(-3.3em);
+
+        &-64
+        {
+            left: 3.1em;
+        }
+
+        &-0
+        {
+            left: 2em;
+        }
+    }
+
+    &__button
+    {
+        background-color: $moderate-cyan;
+        border: none; outline: none;
+        color: white;
+        font-weight: map-get($weights, medium);
+        font-size: 14px;
+        padding: 1.2em 2.5em;
+        border-radius: 30px;
+        margin-bottom: 1em;
+        cursor: pointer;
+
+        &:hover
+        {
+            background-color: $dark-cyan;
+        }
+
+        @include responsive(portatil)
+        {
+            position: absolute;
+            left: 22em; top: 4.5em; 
+            padding: 1em 2em;
+        }
+
+        &-out
+        {
+            background: $dark-gray;
+            cursor: default;
+
+            &:hover
+            {
+                background-color: $dark-gray;
+            }
+
+            @include responsive(portatil)
+            {
+                position: absolute;
+                left: 22.5em;
+            }
+        }
+    }
+}

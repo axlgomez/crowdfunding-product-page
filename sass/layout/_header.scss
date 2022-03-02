@@ -1,0 +1,137 @@
+@use "../base" as *;
+@use "../abstract/" as *;
+
+body
+{
+    font-family: $font-primary;
+    // font-size: $size-primary;
+    background: rgba($color: $dark-gray, $alpha: .1);
+}
+
+.header
+{
+    background: url(/images/image-hero-mobile.jpg)no-repeat;
+    background-size: cover;
+    height: 50vh;
+
+    @include responsive(portatil)
+    {
+        background: url(/images/image-hero-desktop.jpg)no-repeat;
+        background-size: cover;
+    }
+
+    &__images
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5em;
+
+        @include responsive(portatil)
+        {
+            margin: 0 3em;
+        }
+    }
+
+    &__bars
+    {
+        filter: brightness(0) invert(1);
+        transition: all .25s;
+        cursor: pointer;
+    }
+
+    .fa-bars
+    {
+
+        &:active
+        {
+            transform: rotate(-45deg);
+        }
+
+        @include responsive(portatil)
+        {
+            display: none;
+        }
+    }
+
+    &__list
+    {
+        display: none;
+
+        @include responsive(portatil)
+        {
+            display: block;
+            list-style: none;
+        }
+    }
+
+    &__link
+    {
+        display: inline-block;
+    }
+
+    &__item
+    {
+        color: white;
+        text-decoration: none;
+        margin: 0 1em;
+        font-size: 14px;
+        cursor: pointer;
+    }
+
+    &__navBar
+    {
+        position: absolute;
+        list-style: none;
+        left: 0; right: 0;
+        padding: 0;
+        background-color: white;
+        width: 85%;
+        margin: auto;
+        border-radius: 7px;
+        border: 1px solid rgba($color: $black, $alpha: .2);
+        z-index: 1;
+        box-shadow: 0 7px 25px rgba($color: $black, $alpha: .1);
+        display: none;
+
+        &.expand
+        {
+            display: block;
+            animation: fadeIn 1s;
+        }
+
+        @include responsive(portatil)
+        {
+            display: none;
+            
+        }
+    }
+
+    @keyframes fadeIn
+    {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    &__li
+    {
+        display: block;
+        padding: 1em 0;
+        margin-left: 1.5em;
+    }
+
+    &__a
+    {
+        color: $black;
+        text-decoration: none;
+        font-size: inherit;
+        font-weight: map-get($weights, medium);
+    }
+
+    hr
+    {
+        height: 1px;
+        background-color: rgba($color: $dark-gray, $alpha: .2);
+        border: none;
+    }
+}
